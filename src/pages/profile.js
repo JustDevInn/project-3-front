@@ -2,18 +2,34 @@ import React, { Component } from 'react'
 import {Link} from "react-router-dom";
 import DefaultLayout from "../layout/Default";
 import {getUser, logout} from "../utils/auth";
+import './profile.css'
+import { METHODS } from 'http';
+import Axios from 'axios';
+
 class profile extends Component {
- 
-    state = {
-        user:{}
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            user:{
+                 name: "",
+                 wod:"",
+                 //description:"",
+                 //tag:""
+        }}
     }
     componentDidMount() {
-        let user = getUser()
-        if(user) {
-            this.setState({
-                user: user
-            })
-        }
+       Axios({
+           method: "GET",
+           url: "process.env.DB/wods",
+           withCredentials: true
+       })
+       .then((response)=>{
+            this.setState({name:response.data.name, wod:response.data.wod })
+       })
+       .catch((error) => {
+        console.log(error);
+      });
     }
         
     logmeOut = () => {
@@ -26,17 +42,35 @@ class profile extends Component {
         return (
         <div>
         
-            <h1>Welcome to your Profile page {this.state.user.username}</h1>
-            
-            <div className="addBeerContainer">
-                <form className="addBeerForm" onSubmit={this.handleSubmit}>
-                    <input type="text" placeholder="tagline" value={this.state.tagline} onChange={this.handleChange} name="Tag"/>
-                    <input type="text" placeholder="wod" value={this.state.wod} onChange={this.handleChange} name="wod"/>
-                    <input type="text" placeholder="description" value={this.state.description} onChange={this.handleChange} name="description"/>
+            <h1>Welcome to your Profile page {this.state.user.name}</h1>
+            {/* <div className="profileContainer">
+            <div className="addWorkoutContainer">
+                <form className="addWorkoutForm" onSubmit={this.handleSubmit}>
+                    <input type="text" placeholder="Name" value={this.state.name} onChange={this.handleChange} name="name"/>
+                    <input type="text" placeholder="WOD" value={this.state.wod} onChange={this.handleChange} name="wod"/>
+                    <input type="text" placeholder="Description" value={this.state.description} onChange={this.handleChange} name="description"/>
+                    <input type="text" placeholder="Tagline" value={this.state.tagline} onChange={this.handleChange} name="Tag"/>
                     <button type="submit">Add Workout!</button>
                 </form>
+                <br/>
+                <input type="search" name="search" placeholder="search by Tag.." id="searchTag"/>
             </div>
-            <button onClick={this.logmeOut}>log me out</button>
+            <div className="wodsContainer">
+                <div className="wodsCard">
+                    <h1>Wod Name</h1>
+                    <h3>EMOM 10 <br/>
+                    10 HSPU <br/>
+                    10 Pull ups</h3>
+                    <p>Alternate movements every minute</p>
+                    <p>Tag: Pull, Push</p>
+                </div>
+                <div className="wodsCard"></div>
+                <div className="wodsCard"></div>
+                <div className="wodsCard"></div>
+            </div>
+            </div>
+            
+            <button onClick={this.logmeOut}>log me out</button> */}
         </div>
         )
     }

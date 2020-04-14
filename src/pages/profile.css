@@ -1,0 +1,65 @@
+.profileContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+
+/* LEFT MENU */
+
+.addWorkoutContainer {
+    width: 20%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 10px;
+    background-color: blueviolet;
+}
+
+.addWorkoutForm {
+    border-radius: 5px;
+    background-color: #0099ff;
+    padding: 20px;
+    width: 75%;
+    height: 40vh;
+}
+
+input[type=text],
+select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 4px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+/* WORKOUT CARDS */
+
+.wodsContainer {
+    width: 75%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: aqua;
+    padding: 10px;
+}
+
+.wodsCard {
+    width: 25%;
+    height: 50vh;
+    display: flex;
+    align-items: flex-start;
+    background-color: blue;
+    flex-direction: column;
+    padding: 12px 20px;
+    margin: 4px 30px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}

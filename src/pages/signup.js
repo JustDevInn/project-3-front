@@ -51,7 +51,7 @@ export default class Signup extends Component {
                     <label className="label">Username</label>
                     <div className="control">
                         <input 
-                    onChange={this.handleInputChange} value={this.state.username} className="input" name="username" type="text" placeholder="email"
+                    onChange={this.handleInputChange} value={this.state.username} className="input" name="username" type="text" placeholder="username"
                         />
                     </div>
                 </div>

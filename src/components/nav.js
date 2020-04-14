@@ -30,7 +30,7 @@ const Navbar = () => {
                                         Login
                                     </Link>
                                     <Link to="/" className="navbar-item">
-                                        ⌂
+                                        HOME
                                     </Link>
                                 </div>
                             }

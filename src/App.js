@@ -5,7 +5,7 @@ import Home from "./pages/Home"
 import Signup from "./pages/signup";
 import Login from "./pages/login";
 import Nav from "./components/nav";
-import Profile from "./pages/profile";
+import Profile from "./pages/Profile";
 import axios from 'axios';
 
 class App extends Component {
@@ -20,7 +20,6 @@ class App extends Component {
   render() {
     return (
       <div>
-      <h1>App.js front</h1>
       <Route exact path="/" component={Home} />
       <Route path="/login" component={Login} />
       <Route exact path="/signup" component={Signup} />

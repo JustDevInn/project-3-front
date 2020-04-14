@@ -33,6 +33,8 @@ class Home extends Component {
     return (
       <div>
       <DefaultLayout>
+        <a id="signIn" class="btn btn-outline-danger btn-lg" href="/signup" role="button">Sign up now!</a>
+    
       <h1>{this.state.user.name}</h1>
       <p>{this.state.user.description}</p>
       </DefaultLayout>
