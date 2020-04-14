@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import DefaultLayout from "../layout/Default";
-import {getUser, logout} from "../utils/auth";
-import './profile.css'
+import { getUser, logout } from "../utils/Auth";
+import './Profile.css'
 import { METHODS } from 'http';
 import Axios from 'axios';
 
@@ -11,39 +11,44 @@ class profile extends Component {
         super(props)
 
         this.state = {
-            user:{
-                 name: "",
-                 wod:"",
-                 //description:"",
-                 //tag:""
-        }}
+            user: {
+                name: "",
+                wod: "",
+                description:"",
+                tag:""
+            }
+        }
     }
     componentDidMount() {
-       Axios({
-           method: "GET",
-           url: "process.env.DB/wods",
-           withCredentials: true
-       })
-       .then((response)=>{
-            this.setState({name:response.data.name, wod:response.data.wod })
-       })
-       .catch((error) => {
-        console.log(error);
-      });
+        Axios({
+                method: "GET",
+                url: "process.env.DB/wods",
+                withCredentials: true
+            })
+            .then((response) => {
+                this.setState({ 
+                    name: response.data.name, 
+                    wod: response.data.wod, 
+                    description: response.data.description, 
+                    tag: response.data.tag })
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
-        
+
     logmeOut = () => {
         logout()
         this.props.history.push('/')
-    
+
     }
-        
-    render(){
-        return (
+
+    render() {
+        return ( 
+            <DefaultLayout>
         <div>
-        
-            <h1>Welcome to your Profile page {this.state.user.name}</h1>
-            {/* <div className="profileContainer">
+         <h1> Welcome to your Profile page </h1>
+        <div className="profileContainer">
             <div className="addWorkoutContainer">
                 <form className="addWorkoutForm" onSubmit={this.handleSubmit}>
                     <input type="text" placeholder="Name" value={this.state.name} onChange={this.handleChange} name="name"/>
@@ -53,28 +58,26 @@ class profile extends Component {
                     <button type="submit">Add Workout!</button>
                 </form>
                 <br/>
-                <input type="search" name="search" placeholder="search by Tag.." id="searchTag"/>
+                <input type="search" name="search" placeholder="Search by Tag.." id="searchTag"/>
             </div>
             <div className="wodsContainer">
                 <div className="wodsCard">
-                    <h1>Wod Name</h1>
-                    <h3>EMOM 10 <br/>
-                    10 HSPU <br/>
-                    10 Pull ups</h3>
-                    <p>Alternate movements every minute</p>
-                    <p>Tag: Pull, Push</p>
+                    <h1>{this.state.user.name}</h1>
+                    <h3>{this.state.user.wod}</h3>
+                    <p>{this.state.user.description}</p>
+                    <p>{this.state.user.tag}</p>
                 </div>
                 <div className="wodsCard"></div>
                 <div className="wodsCard"></div>
                 <div className="wodsCard"></div>
+                </div>
             </div>
-            </div>
-            
-            <button onClick={this.logmeOut}>log me out</button> */}
-        </div>
-        )
-    }
-    
+                <button onClick={this.logmeOut}>log me out</button>
+     </div>
+     </DefaultLayout>
+     )
+}
+
 }
 
 
@@ -85,7 +88,7 @@ export default profile
 
 // const Profile = (props) => {
 //     let user = getUser();
-    
+
 //     return (
 //         <DefaultLayout>
 //             <h1>Welcome to your profile page {user.username}</h1>

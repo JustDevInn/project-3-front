@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import {getUser} from "../utils/auth";
+import {getUser} from "../utils/Auth";
 import "./nav.css"
 
 const Navbar = () => {
