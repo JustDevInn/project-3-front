@@ -52,14 +52,14 @@ class profile extends Component {
         <div className = "profileContainer" >
             <div className = "addWorkoutContainer" >
                 <form className = "addWorkoutForm" onSubmit = { this.handleSubmit } >
-                    <input type = "text" placeholder = "Name" value = { this.state.name } onChange = { this.handleChange } name = "name" />
-                    <input type = "text" placeholder = "WOD" value = { this.state.wod } onChange = { this.handleChange } name = "wod" / >
-                    <input type = "text" placeholder = "Description" value = { this.state.description } onChange = { this.handleChange } name = "description" / >
-                    <input type = "text" placeholder = "Tagline" value = { this.state.tagline } onChange = { this.handleChange } name = "Tag" / >
+                    <input type = "text" placeholder = "Name" value = { this.state.name } onChange = { this.handleChange } name = "name"/>
+                    <input type = "text" placeholder = "WOD" value = { this.state.wod } onChange = { this.handleChange } name = "wod"/>
+                    <input type = "text" placeholder = "Description" value = { this.state.description } onChange = { this.handleChange } name = "description"/>
+                    <input type = "text" placeholder = "Tagline" value = { this.state.tagline } onChange = { this.handleChange } name = "Tag"/>
                     <button type = "submit" > Add Workout! </button> 
                 </form> 
                     <br/>
-                    <input type = "search"name = "search" placeholder = "Search by Tag.." id = "searchTag" / >
+                    <input type = "search"name = "search" placeholder = "Search by Tag.." id = "searchTag" />
             </div> 
             <div className = "wodsContainer" > {
                 /* eventually this code needs to add a file for each item inside the database, in express previous module I used
