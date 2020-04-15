@@ -14,23 +14,24 @@ class profile extends Component {
             user: {
                 name: "",
                 wod: "",
-                description:"",
-                tag:""
+                description: "",
+                tag: ""
             }
         }
     }
     componentDidMount() {
         Axios({
                 method: "GET",
-                url: "process.env.DB/wods",
+                url: `${process.env.REACT_APP_API_BASE}/users/profile`,
                 withCredentials: true
             })
             .then((response) => {
-                this.setState({ 
-                    name: response.data.name, 
-                    wod: response.data.wod, 
-                    description: response.data.description, 
-                    tag: response.data.tag })
+                this.setState({
+                    name: response.data.name,
+                    wod: response.data.wod,
+                    description: response.data.description,
+                    tag: response.data.tag
+                })
             })
             .catch((error) => {
                 console.log(error);
@@ -45,40 +46,41 @@ class profile extends Component {
 
     render() {
         return ( 
-            <DefaultLayout>
-        <div>
-         <h1> Welcome to your Profile page </h1>
-        <div className="profileContainer">
-            <div className="addWorkoutContainer">
-                <form className="addWorkoutForm" onSubmit={this.handleSubmit}>
-                    <input type="text" placeholder="Name" value={this.state.name} onChange={this.handleChange} name="name"/>
-                    <input type="text" placeholder="WOD" value={this.state.wod} onChange={this.handleChange} name="wod"/>
-                    <input type="text" placeholder="Description" value={this.state.description} onChange={this.handleChange} name="description"/>
-                    <input type="text" placeholder="Tagline" value={this.state.tagline} onChange={this.handleChange} name="Tag"/>
-                    <button type="submit">Add Workout!</button>
-                </form>
-                <br/>
-                <input type="search" name="search" placeholder="Search by Tag.." id="searchTag"/>
-            </div>
-            <div className="wodsContainer">
-            {/* eventually this code needs to add a file for each item inside the database, in express previous module I used
-            the for each method. */}
-                <div className="wodsCard">
-                    <h1>{this.state.user.name}</h1>
-                    <h3>{this.state.user.wod}</h3>
-                    <p>{this.state.user.description}</p>
-                    <p>{this.state.user.tag}</p>
-                </div>
-                <div className="wodsCard"></div>
-                <div className="wodsCard"></div>
-                <div className="wodsCard"></div>
-                </div>
-            </div>
-                <button onClick={this.logmeOut}>log me out</button>
-     </div>
-     </DefaultLayout>
-     )
-}
+        <DefaultLayout>
+    <div >
+            <h1> Welcome to your Profile page </h1> 
+        <div className = "profileContainer" >
+            <div className = "addWorkoutContainer" >
+                <form className = "addWorkoutForm" onSubmit = { this.handleSubmit } >
+                    <input type = "text" placeholder = "Name" value = { this.state.name } onChange = { this.handleChange } name = "name" />
+                    <input type = "text" placeholder = "WOD" value = { this.state.wod } onChange = { this.handleChange } name = "wod" / >
+                    <input type = "text" placeholder = "Description" value = { this.state.description } onChange = { this.handleChange } name = "description" / >
+                    <input type = "text" placeholder = "Tagline" value = { this.state.tagline } onChange = { this.handleChange } name = "Tag" / >
+                    <button type = "submit" > Add Workout! </button> 
+                </form> 
+                    <br/>
+                    <input type = "search"name = "search" placeholder = "Search by Tag.." id = "searchTag" / >
+            </div> 
+            <div className = "wodsContainer" > {
+                /* eventually this code needs to add a file for each item inside the database, in express previous module I used
+                            the for each method. */
+            } 
+                <div className = "wodsCard" >
+                    <h1> { this.state.user.name } </h1> 
+                    <h3> { this.state.user.wod } </h3> 
+                    <p> { this.state.user.description } </p> 
+                    <p> { this.state.user.tag } </p> 
+                </div> 
+            <div className = "wodsCard" > </div> 
+            <div className = "wodsCard" > </div> <div className = "wodsCard" > 
+            </div> 
+            </div> 
+            </div> 
+            <button onClick = { this.logmeOut } > log me out </button> 
+            </div> 
+            </DefaultLayout>
+        )
+    }
 
 }
 
