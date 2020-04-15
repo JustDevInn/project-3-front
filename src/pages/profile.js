@@ -61,6 +61,8 @@ class profile extends Component {
                 <input type="search" name="search" placeholder="Search by Tag.." id="searchTag"/>
             </div>
             <div className="wodsContainer">
+            {/* eventually this code needs to add a file for each item inside the database, in express previous module I used
+            the for each method. */}
                 <div className="wodsCard">
                     <h1>{this.state.user.name}</h1>
                     <h3>{this.state.user.wod}</h3>

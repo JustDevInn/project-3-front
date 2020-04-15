@@ -4,6 +4,7 @@ import './App.css';
 import Home from "./pages/Home"
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+// import Logout from "./pages/logout";
 import Nav from "./components/Nav";
 import Profile from "./pages/Profile";
 import Axios from 'axios';
@@ -21,8 +22,9 @@ class App extends Component {
     return (
       <div>
       <Route exact path="/" component={Home} />
-      <Route path="/login" component={Login} />
-      <Route exact path="/signup" component={Signup} />
+      <Route path="/Login" component={Login} />
+      {/* <Route path="/logout" component={Logout} /> */}
+      <Route exact path="/Signup" component={Signup} />
       <Route path="/profile" component={Profile} />
       </div>
     )
