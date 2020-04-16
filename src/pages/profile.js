@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom";
 import DefaultLayout from "../layout/Default";
-import { getUser, logout } from "../utils/Auth";
-import './Profile.css'
+import { getUser, logout } from "../utils/auth";
+import './profile.css'
 import { METHODS } from 'http';
 import Axios from 'axios';
 import qs from "qs";
@@ -12,12 +12,19 @@ class profile extends Component {
         super(props)
 
         this.state = {
+<<<<<<< HEAD
             wod: [],
             addWod:{
                 name: "",
                 wod: "",
                 description: "",
                 tag: "",
+=======
+            name: "",
+            wod: "",
+            description: "",
+            tag: ""
+>>>>>>> 09fb402ef4acd44474c6bf243efd9336d9e9dad4
         }
         }
         this.handleChange = this.handleChange.bind(this);
@@ -50,13 +57,22 @@ class profile extends Component {
 
 
     componentDidMount() {
+        // use axios again to pull in the user data
         Axios({
                 method: "GET",
                 url: `${process.env.REACT_APP_API_BASE}/wods`,
                 withCredentials: true
             })
             .then((response) => {
+<<<<<<< HEAD
                 this.setState({wod: response.data})
+=======
+                // copy the wods from state
+                // add the wods f
+                this.setState({
+                    wods: response.data
+                })
+>>>>>>> 09fb402ef4acd44474c6bf243efd9336d9e9dad4
             })
             .catch((error) => {
                 console.log(error);

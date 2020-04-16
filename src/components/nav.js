@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import {getUser} from "../utils/Auth";
+import {getUser} from "../utils/auth";
 import "./nav.css"
 import 'react-bulma-components/dist/react-bulma-components.min.css';
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import DefaultLayout from "../layout/Default";
 import Form from "../layout/Form";
-import {signup} from "../utils/Auth";
+import {signup} from "../utils/auth";
 import 'react-bulma-components/dist/react-bulma-components.min.css';
 import { Button } from 'react-bulma-components/dist';
 

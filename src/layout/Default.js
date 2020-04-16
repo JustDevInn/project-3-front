@@ -1,6 +1,6 @@
   
 import React from 'react';
-import Nav from "../components/Nav"
+import Nav from "../components/nav"
 const Default = (props) => {
     return (
         <div className="container">
