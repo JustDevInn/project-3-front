@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom";
 import DefaultLayout from "../layout/Default";
-import { getUser, logout } from "../utils/Auth";
-import './Profile.css'
+import { getUser, logout } from "../utils/auth";
+import './profile.css'
 import { METHODS } from 'http';
 import Axios from 'axios';
 
@@ -11,26 +11,24 @@ class profile extends Component {
         super(props)
 
         this.state = {
-            user: {
-                name: "",
-                wod: "",
-                description: "",
-                tag: ""
-            }
+            name: "",
+            wod: "",
+            description: "",
+            tag: ""
         }
     }
     componentDidMount() {
+        // use axios again to pull in the user data
         Axios({
                 method: "GET",
-                url: `${process.env.REACT_APP_API_BASE}/users/profile`,
+                url: `${process.env.REACT_APP_API_BASE}/wods`,
                 withCredentials: true
             })
             .then((response) => {
+                // copy the wods from state
+                // add the wods f
                 this.setState({
-                    name: response.data.name,
-                    wod: response.data.wod,
-                    description: response.data.description,
-                    tag: response.data.tag
+                    wods: response.data
                 })
             })
             .catch((error) => {

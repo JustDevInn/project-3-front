@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
-import { getUser } from "../utils/Auth";
+import { getUser } from "../utils/auth";
 import DefaultLayout from "../layout/Default";
 import "./home.css"
 import 'react-bulma-components/dist/react-bulma-components.min.css';

@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import {Route} from "react-router-dom";
 import './App.css';
 import Home from "./pages/Home"
-import Signup from "./pages/Signup";
-import Login from "./pages/Login";
+import Signup from "./pages/signup";
+import Login from "./pages/login";
 // import Logout from "./pages/logout";
-import Nav from "./components/Nav";
-import Profile from "./pages/Profile";
+import Nav from "./components/nav";
+import Profile from "./pages/profile";
 import Axios from 'axios';
 
 class App extends Component {
