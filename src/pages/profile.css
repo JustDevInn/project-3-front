@@ -19,7 +19,7 @@
 
 .addWorkoutForm {
     border-radius: 5px;
-    background-color: #0099ff;
+    /* background-color: #0099ff; */
     padding: 20px;
     width: 75%;
     height: 40vh;
@@ -51,16 +51,19 @@ select {
 
 .wodsCard {
     width: 25%;
-    height: 50vh;
+    height: 30vh;
     display: flex;
     align-items: flex-start;
     /* background-color: #0099ff;
     color: white; */
     flex-direction: column;
     padding: 12px 20px;
-    margin: 4px 30px;
+    margin: 10px 30px;
     display: inline-block;
     border: 1px solid rgb(0, 0, 0);
     border-radius: 8px;
     box-sizing: border-box;
+    background-color: rgb(31, 255, 199);
+    color: white;
+    font-weight: bold;
 }

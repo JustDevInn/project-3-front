@@ -1,14 +1,28 @@
-import React from 'react';
-import {Link} from "react-router-dom";
-import {getUser} from "../utils/auth";
+import React, {Component} from 'react';
+import {Link, withRouter} from "react-router-dom"
+import {getUser, logout} from "../utils/Auth";
 import "./nav.css"
 import 'react-bulma-components/dist/react-bulma-components.min.css';
 
-const Navbar = () => {
-    let user = getUser()
-    return (
+class Navbar extends Component {
+    constructor(){
+        super()
+        this.handleLogout = this.handleLogout.bind(this);
+    }
+    handleLogout(){
+        logout()
+        .then(()=> {
+            this.props.history.push("/");
+        })
+        .catch((err)=> {
+            
+        })
+    }
+    render(){
+      let user = getUser();
+     return(
         <nav className="navbar is-white" role="navigation" aria-label="main navigation">
-            {user ?
+            {/* {user ? */}
                 <div id="navbarBasicExample">
                       <div className="navbar-start">
                       <h1 className="navbar-item">
@@ -36,9 +50,12 @@ const Navbar = () => {
                       </div>
                     </div>
                 </div>
-                :
-                <div id="navbarBasicExample">
+                {/* : */}
+                {/* <div id="navbarBasicExample">
                     <div className="navbar-start">
+                    <h1 className="navbar-item">
+                          Sportify
+                        </h1>
                         <a className="navbar-item" href="/">
                           Home
                         </a>
@@ -50,19 +67,20 @@ const Navbar = () => {
                     <div className="navbar-end">
                         <div className="navbar-item">
                             <div className="buttons">
-                            <a className="button is-primary">
+                            <a className="button is-white">
                             <strong>USERNAME</strong>
                             </a>
-                            <a className="button is-light" href="/Logout">
+                            <a onClick = { this.logmeOut } className="button is-light" href="/">
                                 Log out
                             </a>
                             </div>
                         </div>
-                    </div>
-                </div>   
-            }
+                    </div> */}
+                {/* </div>   
+            } */}
         </nav>
-    )
+     )
+    }
 }
 
-export default Navbar;
+export default withRouter(Navbar);

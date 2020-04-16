@@ -6,6 +6,18 @@ import qs from "qs";
     format
 */
 
+export const login = function(credentials) {
+    return axios({
+            method: "POST",
+            url: "/auth/login",
+            headers: { 'content-type': 'application/x-www-form-urlencoded' },
+            data: qs.stringify(credentials)
+        })
+        .then((response) => {
+            setUser(response.data)
+        })
+}
+
 export const logout = () => {
     window.localStorage.removeItem('user');
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
-import { getUser } from "../utils/auth";
+import { getUser } from "../utils/Auth";
 import DefaultLayout from "../layout/Default";
 import "./home.css"
 import 'react-bulma-components/dist/react-bulma-components.min.css';
@@ -35,7 +35,7 @@ class Home extends Component {
         return ( <div>
             <DefaultLayout>
                 <div className="section1">
-                    <Button id = "signIn" href="/Signup" className="button is-primary">Sign up now!</Button>
+                    <a id = "signIn" href="/signup" className="button is-primary">Sign up now!</a>
                 </div>
 
                 <div className="section2" id="about">

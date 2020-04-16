@@ -7,6 +7,11 @@
     margin-top: 30px;
 }
 
+.navbarBasicExample {
+    display: flex;
+    flex-direction: row;
+}
+
 .navbar-item {
     color: white;
     font-size: 2rem;
