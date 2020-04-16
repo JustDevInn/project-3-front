@@ -35,7 +35,7 @@ export default class Signup extends Component {
             this.setState({
                 error: null
             }, ()=> {
-                this.props.history.push("/profile")
+                this.props.history.push("/Profile")
             })
         })
         .catch((error)=> {

@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 import { getUser } from "../utils/Auth";
 import DefaultLayout from "../layout/Default";
-// import css
+import "./home.css"
+import 'react-bulma-components/dist/react-bulma-components.min.css';
+import { Button } from 'react-bulma-components';
 
 
 class Home extends Component {
@@ -30,23 +32,21 @@ class Home extends Component {
 
     render() {
         let user = getUser()
-        return ( <
-            div >
-            <
-            DefaultLayout >
-            <
-            a id = "signIn"
-            class = "btn btn-outline-danger btn-lg"
-            href = "/signup"
-            role = "button" > Sign up now! < /a>
+        return ( <div>
+            <DefaultLayout>
+                <div className="section1">
+                    <Button id = "signIn" href="/Signup" className="button is-primary">Sign up now!</Button>
+                </div>
 
-            <
-            h1 > { this.state.user.name } < /h1> <
-            p > { this.state.user.description } < /p> <
-            /DefaultLayout>
+                <div className="section2" id="about">
+                    <div className="section2Items">
+                        <h3><b>Why Sportify ?</b></h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit aut quaerat provident blanditiis atque? Vel recusandae commodi quisquam, distinctio velit earum fuga libero reiciendis ab, itaque, voluptatem aliquid quod! Obcaecati?</p>
+                    </div>
+                </div>
+            </DefaultLayout>
 
-            <
-            /div>
+            </div>
         )
     }
 }
