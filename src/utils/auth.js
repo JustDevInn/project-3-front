@@ -10,7 +10,7 @@ export const logout = () => {
     window.localStorage.removeItem('user');
 }
 const axios = Axios.create({
-    baseURL: 'http://localhost:3000/auth',
+    baseURL: `${process.env.REACT_APP_API_BASE}/auth`,
     //withCredentials: true, // this prevents cors errors, they also could have called it 'withCors'
     //headers: { 'content-type': 'application/x-www-form-urlencoded' }
 });

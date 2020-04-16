@@ -21,7 +21,7 @@ class Home extends Component {
 
 
     componentDidMount() {
-        Axios.get("http://localhost:3000/users/wods")
+        Axios.get(`${process.env.REACT_APP_API}/wods`)
             .then(res => {
                 this.setState({ name: res.name })
             })
